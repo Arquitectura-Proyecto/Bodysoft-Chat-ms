@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const uri = 'mongodb+srv://jestupinanb:jestupinanb@cluster0-i29ki.mongodb.net/test?retryWrites=true&w=majority'
+
+//'mongodb+srv://jestupinanb:jestupinanb@cluster0-i29ki.mongodb.net/test?retryWrites=true&w=majority'
+const uri = 'mongodb://mongo:27017/chat'
 
 const db = mongoose.connection;
 

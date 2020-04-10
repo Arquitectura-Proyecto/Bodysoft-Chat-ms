@@ -1,0 +1,15 @@
+version: '3'
+services: 
+    body-soft-chat-ms:
+        container_name: Bodysoft-Chat-ms
+        restart: always
+        build: .
+        ports: 
+            - '4000:3000'
+        links:
+            - body-soft-chat-db
+    body-soft-chat-db:
+        container_name: mongo
+        image: mongo
+        ports:
+            - '27017:27017'
