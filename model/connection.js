@@ -12,7 +12,8 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }
-).catch(
+).then(()=>console.log("Connecssasdasted to son una"))
+.catch(
     error => console.log(error)
 );
 
