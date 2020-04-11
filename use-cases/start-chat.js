@@ -1,7 +1,7 @@
 const makeChat = require('../entities')
 
 module.exports =  function makeStartChat({chatDb}){
-    return async function(chatInfo){
+    return async function startChat(chatInfo){
         const chat = makeChat(chatInfo);
         const exist = await chatDb.findByIdUserIdTrainer({id_user:chatInfo.id_user,id_trainer:chatInfo.id_trainer});
         console.log('exist',exist)

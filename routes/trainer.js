@@ -3,39 +3,24 @@ const router = Router();//Se crea un objeto de tipo Router() para poder crear ru
 
 const Chat = require('../model/Chat');
 
+const {startChatUser,getChatUser,getChatsTrainer} = require('../controllers/index.js')
+
 //Obtener los chats de un entrenador
 router.get(
     '/:id_trainer',
-    async (req, res) => {
-        const { id_trainer } = req.params;
-        const chats = await Chat.find({ id_trainer });
-        res.json(chats);
-    }
+    getChatsTrainer
 )
 
 //Obtener un chat especifico de un entrenador con un usuario
 router.get(
     '/:id_trainer/:id_user',
-    async (req, res) => {
-        const { id_trainer, id_user } = req.params;
-        const chat = await Chat.findOne({ id_trainer, id_user })
-        res.json(chat);
-    }
+    getChatUser
 )
 
 //Iniciar chat con un usuario
 router.post(
     '/:id_trainer/:id_user',
-    async (req, res) => {
-        const { id_trainer, id_user, } = req.params;
-        if (id_trainer && id_user) {
-            const chat = new Chat({ id_trainer, id_user });
-            await chat.save();
-            res.send('Created')
-        } else {
-            res.status(500).send('There was an error')
-        }
-    }
+    startChatUser
 )
 
 //Enviar un mensaje a un usuario

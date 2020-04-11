@@ -5,32 +5,24 @@ require('../data-access/connection')
 
 const Chat = require('../model/Chat');
 
-const chatController = require('../controllers')
+const {startChatUser, getChatUser,getChatsUser} = require('../controllers/index.js')
 
 //Obtener los chats de un usuario
 router.get(
     '/:id_user',
-    async (req, res) => {
-        const { id_user } = req.params;
-        const chats = await Chat.find({ id_user });
-        res.json(chats);
-    }
+    getChatsUser
 )
 
 //Obtener un chat especifico de un usuario con un entrenador
 router.get(
     '/:id_user/:id_trainer',
-    async (req, res) => {
-        const { id_user, id_trainer } = req.params;
-        const chat = await Chat.findOne({ id_user, id_trainer })
-        res.json(chat);
-    }
+    getChatUser
 )
 
 //Iniciar chat con un entrenador
 router.post(
     '/:id_user/:id_trainer',
-    chatController
+    startChatUser
 )
 
 //Enviar un mensaje a un entrenador
