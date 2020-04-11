@@ -1,3 +1,5 @@
+const {makeMessage} = require('../entities')
+
 module.exports = function makeAddMessage({ chatDb }) {
     return function addMessage({ _id, message, id_user, id_trainer }) {
         if(id_user){
@@ -5,7 +7,11 @@ module.exports = function makeAddMessage({ chatDb }) {
         }else{
             message = { ...message, id_author: id_trainer }
         }
-        
-        return chatDb.insertMessage({ _id, message, id_user, id_trainer })
+
+        const objectmessage = makeMessage({_id,id_user,id_trainer,message})
+
+        //console.log("ADD-MESAGE",objectmessage)
+
+        return chatDb.insertMessage(objectmessage)
     }
 }

@@ -24,9 +24,8 @@ module.exports = function makeChatDb({ ChatModel }) {
     }
 
     async function insertMessage({_id,message}){
-        console.log(_id)
+        console.log("CHAT-DB",_id,message)
         const chat = await Chat.findById(_id);
-        console.log(chat);
         chat.messages.push(message);
         return await chat.save();
     }

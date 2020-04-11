@@ -5,6 +5,7 @@ module.exports = function buildMakeMessage() {
         id_trainer,
         message,
     }) {
+        
         if (!_id) {
             throw new Error('Message must have a valid _id')
         }
@@ -24,6 +25,8 @@ module.exports = function buildMakeMessage() {
         }
 
         message = {id_author,content}
+
+        ///console.log("MESSAGE ENTITY",message)
 
         return Object.freeze({
             _id,

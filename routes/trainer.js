@@ -19,13 +19,13 @@ router.get(
 
 //Iniciar chat con un usuario
 router.post(
-    '/:id_trainer/:id_user',
+    '/:id_trainer',
     startChatUser
 )
 
 //Enviar un mensaje a un usuario
 router.post(
-    '/:id_trainer/:id_user/message',
+    '/:id_trainer/:id',
     postMessage
 )
 

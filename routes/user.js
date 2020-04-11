@@ -21,13 +21,13 @@ router.get(
 
 //Iniciar chat con un entrenador
 router.post(
-    '/:id_user/:id_trainer',
+    '/:id_user',
     startChatUser
 )
 
 //Enviar un mensaje a un entrenador
 router.post(
-    '/:id_user/:id_unknow/:id',
+    '/:id_user/:id',
     postMessage
 )
 
