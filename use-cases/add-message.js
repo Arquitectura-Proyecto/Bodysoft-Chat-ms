@@ -1,4 +1,4 @@
-const {makeMessage} = require('../entities')
+const {makeMessage} = require('../entitiestemp')
 
 module.exports = function makeAddMessage({ chatDb }) {
     return function addMessage({ _id, message, id_user, id_trainer }) {
