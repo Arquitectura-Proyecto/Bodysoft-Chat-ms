@@ -1,6 +1,7 @@
 {
-  "name": "Bodysoft-Chat-ms-j",
+  "name": "bodysoft-chat-ms",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -8,22 +9,21 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.3"
   },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev" : "nodemon index.js",
+    "start" : "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Arquitectura-Proyecto/Bodysoft-Chat-ms-j.git"
+    "url": "git+https://github.com/Arquitectura-Proyecto/bodysoft-chat-ms.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Arquitectura-Proyecto/Bodysoft-Chat-ms-j/issues"
+    "url": "https://github.com/Arquitectura-Proyecto/bodysoft-chat-ms/issues"
   },
-  "homepage": "https://github.com/Arquitectura-Proyecto/Bodysoft-Chat-ms-j#readme",
-  "description": ""
+  "homepage": "https://github.com/Arquitectura-Proyecto/bodysoft-chat-ms#readme"
 }

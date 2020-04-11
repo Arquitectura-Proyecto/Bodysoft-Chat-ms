@@ -1,20 +1,20 @@
 const { Schema, model } = require('mongoose');
 
-const conversationSchema = new Schema({
+const chatSchema = new Schema({
     date: {
         type: Date,
         default: new Date()
     },
-    idUser:{
+    id_user:{
         type:Number,
         required:true,
     },
-    idTrainer:{
+    id_trainer:{
         type:Number,
         required:true
     },
     messages:[{
-        idAuthor:Number,
+        id_author:Number,
         content:String,
         date:{
             type: Date,
@@ -23,4 +23,4 @@ const conversationSchema = new Schema({
     }]
 })
 
-module.exports = model('Conversation',conversationSchema);
+module.exports = model('Chat',chatSchema);

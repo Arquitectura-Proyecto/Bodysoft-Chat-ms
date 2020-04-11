@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 
 //'mongodb+srv://jestupinanb:jestupinanb@cluster0-i29ki.mongodb.net/test?retryWrites=true&w=majority'
-const uri = 'mongodb://mongo:27017/chat'
+const uri = 'mongodb://localhost:27017/chat'
 
 const db = mongoose.connection;
 
@@ -12,7 +12,7 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true,
     }
-).then(()=>console.log("Connecssasdasted to son una"))
+).then(()=>console.log("Connected to mongodb"))
 .catch(
     error => console.log(error)
 );
