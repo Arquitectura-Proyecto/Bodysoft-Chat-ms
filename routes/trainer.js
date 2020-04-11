@@ -3,7 +3,7 @@ const router = Router();//Se crea un objeto de tipo Router() para poder crear ru
 
 const Chat = require('../model/Chat');
 
-const {startChatUser,getChatUser,getChatsTrainer} = require('../controllers/index.js')
+const {startChatUser,getChatUser,getChatsTrainer,postMessage} = require('../controllers/index.js')
 
 //Obtener los chats de un entrenador
 router.get(
@@ -26,20 +26,7 @@ router.post(
 //Enviar un mensaje a un usuario
 router.post(
     '/:id_trainer/:id_user/message',
-    async (req, res) => {
-        const { id_trainer, id_user } = req.params;
-        const { message } = req.body;
-        console.log(req.params, req.body)
-        if (id_trainer && id_user && message) {
-            const chat = await Chat.findOne({ id_trainer, id_user });
-            message = { ...message, id_author: id_trainer }
-            chat.messages.push(message);
-            await chat.save();
-            res.send('Message created')
-        } else {
-            res.status(500).send('There was an error')
-        }
-    }
+    postMessage
 )
 
 module.exports = router;

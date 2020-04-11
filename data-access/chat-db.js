@@ -1,9 +1,12 @@
+const Chat = require('../model/Chat');
+
 module.exports = function makeChatDb({ ChatModel }) {
     return Object.freeze({
         findByIdUserIdTrainer,
         insert,
         findByIdUser,
-        findByIdTrainer
+        findByIdTrainer,
+        insertMessage
     })
     async function findByIdUserIdTrainer({ id_user, id_trainer }) {
         return await ChatModel.findOne({ id_user, id_trainer });
@@ -20,4 +23,11 @@ module.exports = function makeChatDb({ ChatModel }) {
         return await ChatModel.find({id_trainer});
     }
 
+    async function insertMessage({_id,message}){
+        console.log(_id)
+        const chat = await Chat.findById(_id);
+        console.log(chat);
+        chat.messages.push(message);
+        return await chat.save();
+    }
 }

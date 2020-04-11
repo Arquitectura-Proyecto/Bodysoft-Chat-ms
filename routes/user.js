@@ -5,7 +5,7 @@ require('../data-access/connection')
 
 const Chat = require('../model/Chat');
 
-const {startChatUser, getChatUser,getChatsUser} = require('../controllers/index.js')
+const {startChatUser, getChatUser,getChatsUser,postMessage} = require('../controllers/index.js')
 
 //Obtener los chats de un usuario
 router.get(
@@ -27,22 +27,8 @@ router.post(
 
 //Enviar un mensaje a un entrenador
 router.post(
-    '/:id_user/:id_trainer/message',
-    async (req, res) => {
-        const { id_user, id_trainer } = req.params;
-        let { message } = req.body;
-        console.log(req.params, req.body)
-        if (id_user && id_trainer && message) {
-            const chat = await Chat.findOne({ id_user, id_trainer });
-            console.log(chat);
-            message = { ...message, id_author: id_user }
-            chat.messages.push(message);
-            await chat.save();
-            res.send('Message created')
-        } else {
-            res.status(500).send('There was an error')
-        }
-    }
+    '/:id_user/:id_unknow/:id',
+    postMessage
 )
 
 module.exports = router;

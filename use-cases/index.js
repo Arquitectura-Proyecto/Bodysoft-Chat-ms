@@ -2,6 +2,7 @@ const makeStartChat = require('./start-chat')
 const makeListChat = require('./list-chat')
 const makeListChatsUser = require('./list-chats-user')
 const makeListChatsTrainer = require('./list-chats-trainer')
+const makeAddMessage = require('./add-message')
 
 const chatDb = require('../data-access')
 
@@ -13,4 +14,6 @@ const listChatsUser = makeListChatsUser({ chatDb })
 
 const listChatsTrainer = makeListChatsTrainer({ chatDb })
 
-module.exports = { startChat, listChat, listChatsUser, listChatsTrainer };
+const addMessage = makeAddMessage({ chatDb });
+
+module.exports = { startChat, listChat, listChatsUser, listChatsTrainer, addMessage };
