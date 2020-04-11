@@ -4,7 +4,7 @@ module.exports = function makePostMessage({addMessage}) {
             const { id:_id,id_user, id_trainer } = req.params;
             let { message } = req.body;
 
-            console.log("CONTROLLERS",{_id,id_user,id_trainer,message})
+            //console.log("CONTROLLERS",{_id,id_user,id_trainer,message})
 
             const messageCreated = await addMessage({_id,id_user,id_trainer,message})
 
