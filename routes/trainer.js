@@ -1,8 +1,6 @@
 const { Router } = require('express');
 const router = Router();//Se crea un objeto de tipo Router() para poder crear rutas
 
-require('../model/connection')
-
 const Chat = require('../model/Chat');
 
 //Obtener los chats de un entrenador

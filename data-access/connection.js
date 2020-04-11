@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 //'mongodb+srv://jestupinanb:jestupinanb@cluster0-i29ki.mongodb.net/test?retryWrites=true&w=majority'
 const uri = 'mongodb://localhost:27017/chat'
 

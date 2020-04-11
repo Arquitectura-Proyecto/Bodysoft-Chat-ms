@@ -1,9 +1,11 @@
 const { Router } = require('express');
 const router = Router();//Se crea un objeto de tipo Router() para poder crear rutas
 
-require('../model/connection')
+require('../data-access/connection')
 
 const Chat = require('../model/Chat');
+
+const chatEntity = require('../use-cases');
 
 //Obtener los chats de un usuario
 router.get(
@@ -29,13 +31,19 @@ router.get(
 router.post(
     '/:id_user/:id_trainer',
     async (req, res) => {
-        const { id_user, id_trainer, } = req.params;
-        if (id_user && id_trainer) {
-            const chat = new Chat({ id_user, id_trainer });
-            await chat.save();
-            res.send('Created')
-        } else {
-            res.status(500).send('There was an error')
+        try{
+            const { id_user, id_trainer, } = req.params;
+            if (id_user && id_trainer) {
+                //const chat = new Chat({ id_user, id_trainer });
+                chat = chatEntity({id_user,id_trainer});
+
+                //await chat.save();
+                res.send('Created')
+            } else {
+                res.status(500).send('There was an error')
+            }
+        }catch(error){
+            res.status(500).send(error.message);
         }
     }
 )
