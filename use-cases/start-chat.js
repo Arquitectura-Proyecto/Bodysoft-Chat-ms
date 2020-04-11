@@ -1,4 +1,4 @@
-const {makeChat} = require('../entitiestemp')
+const {makeChat} = require('../entities')
 
 module.exports =  function makeStartChat({chatDb}){
     return async function startChat(chatInfo){

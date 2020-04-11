@@ -4,7 +4,7 @@ const router = Router();//Se crea un objeto de tipo Router() para poder crear ru
 const Chat = require('../model/Chat');
 
 const {startChatUser,getChatUser,getChatsTrainer,postMessage} = require('../controllers/index.js')
-/*
+
 //Obtener los chats de un entrenador
 router.get(
     '/:id_trainer',
@@ -28,5 +28,5 @@ router.post(
     '/:id_trainer/:id',
     postMessage
 )
-*/
+
 module.exports = router;
