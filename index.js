@@ -12,7 +12,7 @@ app.use(express.json());//Se van a recibir formatos json
 app.use(express.urlencoded({extended:false}));//Si llegan datos de otro tipo de los formularios
 
 //routes
-//app.use('/api/user',require('./routes/user'));
+app.use('/api/user',require('./routes/user'));
 app.use('/api/trainer',require('./routes/trainer'));
 
 //starting the server
