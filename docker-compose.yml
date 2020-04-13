@@ -9,7 +9,7 @@ services:
         links:
             - body-soft-chat-db
     body-soft-chat-db:
-        container_name: mongo
+        container_name: body-soft-chat-db
         image: mongo
         ports:
             - '27017:27017'
