@@ -1,7 +1,9 @@
 const mongoose = require('mongoose');
 
-//'mongodb+srv://jestupinanb:jestupinanb@cluster0-i29ki.mongodb.net/test?retryWrites=true&w=majority'
-const uri = 'mongodb://mongo:27017/chat'
+
+const uri = `mongodb://${process.env.DB || 'localhost'}:${process.env.PORT_DB || 27017}/chat`
+
+console.log("Conectando a "+uri)
 
 const db = mongoose.connection;
 
@@ -13,7 +15,7 @@ mongoose.connect(
     }
 ).then(()=>console.log("Connected to mongodb"))
 .catch(
-    error => console.log(error)
+    error => console.log("Error al conectar con mongo "+error)
 );
 
 db.once(
@@ -23,5 +25,5 @@ db.once(
 
 db.on(
     'error',
-    error=>console.log(error)
+    error=>console.log("Error al conectar con mongo "+error)
 )

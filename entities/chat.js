@@ -3,7 +3,7 @@ module.exports =  function buildMakeChat(){
         id_user,
         id_trainer
     }){
-        console.log(id_user,id_trainer)
+        //console.log(id_user,id_trainer)
         if(!id_user){
             throw new Error('Chat must have a valid id_user')
         }
