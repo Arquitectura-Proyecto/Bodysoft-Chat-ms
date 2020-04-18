@@ -4,10 +4,11 @@ module.exports = function maketartChatUser({ startChat }) {
             const bodyAndParams = {...req.params,...req.body}
             const { id_user,id_trainer } = bodyAndParams;
             
-            await startChat({ id_user, id_trainer });
-            res.status(201).send('Created chat user')
+            const chat = await startChat({ id_user, id_trainer });
+
+            res.status(201).send(chat)
         } catch (error) {
-            res.status(500).send(error.message);
+            res.status(400).send(error.message);
         }
     }
 }

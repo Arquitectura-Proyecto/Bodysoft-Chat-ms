@@ -9,7 +9,6 @@ module.exports = function buildMakeMessage() {
         if (!_id) {
             throw new Error('Message must have a valid _id')
         }
-
         const {id_author,content} = message;
 
         if(!id_author){
