@@ -6,7 +6,8 @@ module.exports = function makeChatDb({ ChatModel }) {
         insert,
         findByIdUser,
         findByIdTrainer,
-        insertMessage
+        insertMessage,
+        findChatById
     })
     async function findByIdUserIdTrainer({ id_user, id_trainer }) {
         return await ChatModel.findOne({ id_user, id_trainer });
@@ -24,9 +25,18 @@ module.exports = function makeChatDb({ ChatModel }) {
     }
 
     async function insertMessage({_id,message}){
-        console.log("CHAT-DB",_id,message)
+        console.log("INSERT MESSAGE DB",_id,message)
         const chat = await Chat.findById(_id);
-        chat.messages.push(message);
-        return await chat.save();
+        const messagefinal = chat.messages[chat.messages.push(message)-1];
+        console.log("message",messagefinal);
+        await chat.save();
+        return messagefinal
+    }
+
+    async function findChatById({_id}){
+        //console.log("FIND CHAT BY ID DB",_id);
+        const chat = await Chat.findById(_id)
+        //console.log("FIND CHAT BY ID DB",chat);
+        return chat;
     }
 }

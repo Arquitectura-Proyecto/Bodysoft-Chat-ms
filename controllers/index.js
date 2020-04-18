@@ -9,7 +9,7 @@ const makeGetChatsTrainer = require('./get-chats-trainer')
 
 const makePostMessage = require('./post-message')
 
-const {startChat,listChat,listChatsUser,listChatsTrainer,addMessage} = require('../use-cases');
+const {startChat,listChat,listChatsUser,listChatsTrainer,addMessageTrainer,addMessageUser} = require('../use-cases');
 
 const startChatUser = makeStartChatUser({startChat});
 
@@ -19,6 +19,6 @@ const getChatsUser = makeGetChatsUser({listChatsUser})
 
 const getChatsTrainer = makeGetChatsTrainer({listChatsTrainer})
 
-const postMessage = makePostMessage({addMessage})
+const postMessage = makePostMessage({addMessageTrainer,addMessageUser})
 
 module.exports = {startChatUser,getChatUser,getChatsUser,getChatsTrainer,postMessage}
