@@ -3,7 +3,7 @@ const app  = express();
 const morgan = require('morgan');
 
 //settings
-app.set('port',process.env.PORT || 4100);//Puerto al cual se va a conectar
+app.set('port',process.env.PORT || 4500);//Puerto al cual se va a conectar
 app.set('json spaces',2);//Se encarga de que los archivos .json se vean bien
 
 //middlewares

@@ -5,11 +5,11 @@ services:
         restart: always
         build: .
         environment: 
-            PORT: '3000'
+            PORT: '4500'
             PORT_DB: '27018'
             DB: 'bodysoft-chat-db'
         ports: 
-            - '3000:3000'
+            - '4500:4500'
         links:
             - bodysoft-chat-db
     bodysoft-chat-db:
