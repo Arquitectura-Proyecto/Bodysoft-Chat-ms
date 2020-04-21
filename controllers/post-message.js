@@ -11,8 +11,12 @@ module.exports = function makePostMessage({addMessageTrainer,addMessageUser}) {
             res.status(201).send(messageCreated)
 
         } catch (error) {
-            console.log("error al enviar mensaje")
-            res.status(400).send(error.message)
+            console.log(error);
+            if(error.status && error.data){
+                res.status(error.status).send(error.data);
+            }else{
+                res.status(500).send(error.message);
+            }
         }
     }
 }

@@ -6,7 +6,11 @@ module.exports = function makeGetChatUser({listChat}){
             const chat = await listChat({ id_user, id_trainer })
             res.status(200).json(chat);   
         }catch(error){
-            res.status(400).send(error.message);
+            if(error.status && error.data){
+                res.status(error.status).send(error.data);
+            }else{
+                res.status(500).send(error.message);
+            }
         }
     }
 }
