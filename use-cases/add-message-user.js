@@ -11,7 +11,7 @@ module.exports = function makeAddMessageUser({ chatDb }) {
         //console.log("chat.id_user: "+chat.id_user +" !== id_user: "+id_user)
 
         if(chat.id_user != id_user){
-            throw new Error('The user does not exist in this chat')
+            throw {data: 'The user does not exist in this chat', status : 400};
         }
         
         //console.log("ADD-MESAGE",objectmessage)

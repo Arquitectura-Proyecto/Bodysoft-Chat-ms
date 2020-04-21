@@ -10,7 +10,7 @@ module.exports = function makeAddMessageTrainer({ chatDb }) {
         const chat = await chatDb.findChatById({_id:objectmessage._id});
 
         if(chat.id_trainer != id_trainer){
-            throw new Error('The trainer does not exist in this chat')
+            throw {data: 'The trainer does not exist in this chat', status : 400};
         }
 
         //console.log("ADD-MESAGE",objectmessage)
