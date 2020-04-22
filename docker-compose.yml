@@ -1,0 +1,20 @@
+version: '3'
+services: 
+    body-soft-chat-ms:
+        container_name: bodysoft-chat-ms
+        restart: always
+        build: .
+        environment: 
+            PORT: '4500'
+            PORT_DB: '27018'
+            DB: 'bodysoft-chat-db'
+        ports: 
+            - '4500:4500'
+        links:
+            - bodysoft-chat-db
+    bodysoft-chat-db:
+        container_name: bodysoft-chat-db
+        image: mongo
+        command: mongod --port 27018
+        ports:
+            - '27018:27018'
